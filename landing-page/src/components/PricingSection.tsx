@@ -1,9 +1,10 @@
 "use client";
 
-import { Check, ArrowRight, Zap, Shield, HelpCircle } from "lucide-react";
+import { Check, ArrowRight, Zap, Shield, HelpCircle, Star } from "lucide-react";
 import SectionWrapper from "./ui/SectionWrapper";
 import PremiumCard from "./ui/PremiumCard";
 import CTAButton from "./ui/CTAButton";
+import { motion } from "framer-motion";
 
 const FEATURES = [
   "7 Complete Training Modules",
@@ -20,99 +21,100 @@ export default function PricingSection() {
     <SectionWrapper
       id="pricing"
       badge="Special Offer"
-      title="Start Your Earning Journey Today"
-      subtitle="Join 500+ students building a high-income future with AI landing pages."
+      title="Invest in Your Future Skills"
+      subtitle="Join 500+ successful students today. Limited time launch offer."
       withOrb
+      padding="lg"
     >
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-xl mx-auto relative">
+        {/* Sparkle decoration */}
+        <div className="absolute -top-10 -right-10 w-20 h-20 bg-amber-500/20 blur-[40px] rounded-full pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-violet-500/20 blur-[40px] rounded-full pointer-events-none" />
+
         <PremiumCard
           featured
           title="Complete AI Landing Page Course"
+          className="shadow-[0_0_80px_rgba(139,92,246,0.25)]"
         >
-          <div className="p-8 sm:p-10">
-            <div className="flex flex-col items-center text-center gap-4 mb-10">
-              <div className="flex items-baseline gap-1">
-                <span className="text-slate-400 text-2xl font-black">BDT</span>
-                <span className="text-6xl sm:text-7xl font-black text-white tracking-tighter">
+          <div className="p-8 sm:p-12 flex flex-col items-center">
+            {/* Price Header */}
+            <div className="text-center mb-10 w-full">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[0.65rem] font-black uppercase tracking-widest mb-6">
+                 Highly Recommended
+              </div>
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-slate-500 text-3xl font-black">BDT</span>
+                <span className="text-7xl sm:text-8xl font-black text-white tracking-tighter">
                   1,490
                 </span>
               </div>
-
-              <div className="flex flex-col items-center gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-500 line-through text-lg font-medium">2,990</span>
-                  <span className="text-slate-500 text-lg font-medium mb-1">BDT</span>
-                </div>
-                <p className="text-emerald-400 text-sm font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                  Save 50% - One-time payment
-                </p>
-                <p className="text-slate-500 text-xs mt-2 font-medium italic">
-                  Launch price available for a limited time. Price will increase later.
-                </p>
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <span className="text-slate-600 line-through text-xl font-medium">2,990 BDT</span>
+                <span className="text-emerald-500 text-sm font-black bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
+                  Save 50%
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-6 font-medium italic opacity-70">
+                Launch price available for a limited time. Price will increase later.
+              </p>
+            </div>
 
-              <div className="space-y-5 mb-10">
-                <p className="text-white font-bold text-sm uppercase tracking-widest text-center opacity-80">- What you get -</p>
-                <div className="grid grid-cols-1 gap-4">
-                  {FEATURES.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center border border-violet-500/30">
-                        <Check size={12} className="text-violet-400" />
-                      </div>
-                      <span className="text-slate-300 text-sm font-medium">{feature}</span>
+            {/* Feature List */}
+            <div className="w-full space-y-5 mb-12">
+              <p className="text-white font-black text-xs uppercase tracking-[0.3em] text-center opacity-40 mb-8">— What&apos;s Included —</p>
+              <div className="grid grid-cols-1 gap-5">
+                {FEATURES.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-4 group">
+                    <div className="w-6 h-6 rounded-full bg-violet-500/10 flex items-center justify-center border border-violet-500/30 group-hover:bg-violet-500/20 transition-colors shrink-0">
+                      <Check size={14} className="text-violet-400" />
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              <CTAButton
-                id="pricing-checkout-btn"
-                href="https://checkout.example.com"
-                size="lg"
-                fullWidth
-                icon={<ArrowRight size={20} />}
-                iconPosition="right"
-                className="py-5 text-lg"
-              >
-                Enroll Now & Get Instant Access
-              </CTAButton>
-
-              <div className="mt-8 pt-8 border-t border-white/[0.05] grid grid-cols-2 gap-6 w-full">
-                <div className="flex flex-col items-center gap-2">
-                  <Shield size={20} className="text-slate-500" />
-                  <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest text-center leading-tight">Secure <br /> Payment</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-5 h-5 relative">
-                    <img src="/logo.png" alt="" className="w-full h-full object-contain grayscale opacity-50" />
+                    <span className="text-slate-300 text-base font-medium group-hover:text-white transition-colors">{feature}</span>
                   </div>
-                  <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest text-center leading-tight">Instant <br /> Delivery</span>
-                </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <CTAButton
+              id="pricing-checkout-btn"
+              href="https://checkout.example.com"
+              size="lg"
+              fullWidth
+              icon={<ArrowRight size={24} />}
+              iconPosition="right"
+              className="py-6 text-xl shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:shadow-[0_0_60px_rgba(139,92,246,0.9)] scale-105"
+            >
+              Get Instant Access Now
+            </CTAButton>
+
+            {/* Trust Badges */}
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 w-full border-t border-white/5 pt-10">
+              <div className="flex items-center gap-3">
+                <Shield size={22} className="text-slate-500" />
+                <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest leading-none">Secure <br/> Payments</span>
+              </div>
+              <div className="w-px h-8 bg-white/5 hidden sm:block" />
+              <div className="flex items-center gap-3">
+                <Zap size={22} className="text-slate-500" />
+                <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest leading-none">Instant <br/> Access</span>
+              </div>
+              <div className="w-px h-8 bg-white/5 hidden sm:block" />
+              <div className="flex items-center gap-3">
+                <Star size={22} className="text-slate-500" />
+                <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest leading-none">Lifetime <br/> Updates</span>
               </div>
             </div>
           </div>
         </PremiumCard>
 
         {/* Support Link */}
-        <div className="mt-10 flex flex-col items-center gap-4 text-center">
-          <div className="flex items-center gap-2 py-1 px-3 rounded-full bg-slate-900/40 border border-white/5">
-            <HelpCircle size={14} className="text-slate-500" />
-            <span className="text-slate-400 text-xs">Have questions? We're here to help.</span>
-          </div>
-          <div className="flex gap-4">
-            <a href="#" className="text-violet-400 text-[0.8rem] font-bold hover:text-violet-300 transition-colors">WhatsApp Support</a>
-            <span className="text-slate-800">|</span>
-            <a href="#" className="text-violet-400 text-[0.8rem] font-bold hover:text-violet-300 transition-colors">Messenger Chat</a>
-          </div>
-
-          {/* Student count badge */}
-          <div className="mt-4 flex items-center gap-4 p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05]">
-            <div className="flex -space-x-2">
-              {[1, 2, 3].map(i => <div key={i} className="w-6 h-6 rounded-full border-2 border-slate-800 bg-violet-500/50" />)}
-            </div>
-            <p className="text-slate-500 text-[0.7rem] font-medium leading-none">
-              Join <span className="text-white font-bold">500+</span> other students today
-            </p>
+        <div className="mt-12 flex flex-col items-center gap-6 text-center">
+          <p className="text-slate-500 text-sm">
+            Join <span className="text-white font-bold">500+ students</span> who already started.
+          </p>
+          <div className="flex gap-4 p-2 rounded-2xl bg-white/[0.03] border border-white/5">
+            <a href="#" className="px-6 py-2 rounded-xl text-violet-400 text-[0.85rem] font-black hover:bg-violet-500/10 transition-all uppercase tracking-wider">WhatsApp Support</a>
+            <a href="#" className="px-6 py-2 rounded-xl text-violet-400 text-[0.85rem] font-black hover:bg-violet-500/10 transition-all uppercase tracking-wider">Messenger Chat</a>
           </div>
         </div>
       </div>

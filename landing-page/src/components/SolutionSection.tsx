@@ -59,7 +59,7 @@ export default function SolutionSection() {
                 <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center border border-violet-500/30">
                   <Rocket className="text-violet-400" size={32} />
                 </div>
-                <p className="text-slate-400 font-medium tracking-wide">Roadmap to 50K BDT/mo</p>
+                <p className="text-slate-400 font-medium tracking-wide">Professional Digital Skills</p>
              </div>
           </div>
         </motion.div>

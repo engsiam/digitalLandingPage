@@ -4,18 +4,18 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL('https://ailandingpages.com'),
   title: {
-    default: "AI Landing Pages - Earn 10K-50K BDT Online",
+    default: "AI Landing Pages - Master a High-Demand Digital Skill",
     template: "%s | AI Landing Pages"
   },
   description:
-    "A step-by-step roadmap for university students to build high-converting landing pages with AI and start earning online without coding.",
+    "A step-by-step roadmap for university students to build high-converting landing pages with AI. Start building your digital future with a practical skill.",
   keywords: [
     "AI landing pages",
-    "earn online Bangladesh",
+    "digital skills for students",
     "digital product",
     "freelancing for students",
-    "make money online BDT",
-    "passive income for students",
+    "learn AI design",
+    "student portfolio building",
     "AI design roadmap"
   ],
   authors: [{ name: "AI Landing Pages Team" }],
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "AI Landing Pages - Earn 10K-50K BDT Online",
-    description: "Master the art of building landing pages using AI. No coding, high-converting, student-ready.",
+    title: "AI Landing Pages - Master High-Demand Digital Skills",
+    description: "Build a professional portfolio by mastering AI landing pages. Practical, no-code, student-ready roadmap.",
     url: 'https://ailandingpages.com',
     siteName: 'AI Landing Pages',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "AI Landing Pages - Earn 10K-50K BDT Online",
+    title: "AI Landing Pages - Master Digital Skills",
     description: "The complete AI design roadmap for students.",
     images: ['/og-image.png'],
   },

@@ -20,9 +20,9 @@ interface SectionWrapperProps {
 }
 
 const paddingMap = {
-  sm: "py-16 sm:py-20",
-  md: "py-20 sm:py-28",
-  lg: "py-24 sm:py-36",
+  sm: "py-20 sm:py-24",
+  md: "py-24 sm:py-36",
+  lg: "py-32 sm:py-48",
 };
 
 export default function SectionWrapper({
