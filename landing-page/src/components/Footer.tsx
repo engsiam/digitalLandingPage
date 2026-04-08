@@ -13,8 +13,12 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1 flex flex-col gap-6">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-violet-900/50">
-                <Zap size={17} className="text-white" fill="white" />
+              <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-violet-900/40">
+                <img 
+                  src="/logo.png" 
+                  alt="AI Landing Pages" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="font-black text-xl tracking-tight text-white">
                 AI <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Landing Pages</span>

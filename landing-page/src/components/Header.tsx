@@ -93,10 +93,12 @@ export default function Header() {
             transition={{ duration: 0.45, ease: "easeOut" }}
             onClick={() => setMobileOpen(false)}
           >
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-violet-900/50 group-hover:shadow-violet-700/60 transition-shadow duration-300">
-              <Zap size={17} className="text-white" fill="white" />
-              {/* pulsing ring */}
-              <span className="absolute inset-0 rounded-xl ring-1 ring-violet-400/30 animate-ping opacity-30" />
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-violet-900/40">
+              <img 
+                src="/logo.png" 
+                alt="AI Landing Pages Logo" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
             </div>
             <span className="font-black text-[1.05rem] tracking-tight text-white leading-none">
               AI{" "}

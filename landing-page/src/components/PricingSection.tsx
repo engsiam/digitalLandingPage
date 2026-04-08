@@ -46,6 +46,9 @@ export default function PricingSection() {
                 <p className="text-emerald-400 text-sm font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                   Save 50% - One-time payment
                 </p>
+                <p className="text-slate-500 text-xs mt-2 font-medium italic">
+                  Launch price available for a limited time. Price will increase later.
+                </p>
               </div>
 
               <div className="space-y-5 mb-10">
@@ -80,7 +83,9 @@ export default function PricingSection() {
                   <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest text-center leading-tight">Secure <br /> Payment</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <Zap size={20} className="text-slate-500" />
+                  <div className="w-5 h-5 relative">
+                    <img src="/logo.png" alt="" className="w-full h-full object-contain grayscale opacity-50" />
+                  </div>
                   <span className="text-[0.7rem] text-slate-500 uppercase font-black tracking-widest text-center leading-tight">Instant <br /> Delivery</span>
                 </div>
               </div>

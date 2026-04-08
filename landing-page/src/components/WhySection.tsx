@@ -43,7 +43,7 @@ export default function WhySection() {
     <SectionWrapper
       id="why-this-skill"
       badge="Why This Skill?"
-      title="The Smartest Way to Start Earning in 2024"
+      title="The Smartest Way to Start Earning in 2026"
       subtitle="Landing pages are the high-leverage skill that bridges the gap between 'learning' and 'earning'."
       withOrb
     >
@@ -61,8 +61,8 @@ export default function WhySection() {
                 Why landing pages are easier to sell than full websites
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Most businesses don&apos;t need a complex 20-page website. They need a single, focused page that 
-                <span className="text-violet-300"> converts visitors into customers</span>. 
+                Most businesses don&apos;t need a complex 20-page website. They need a single, focused page that
+                <span className="text-violet-300"> converts visitors into customers</span>.
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export default function WhySection() {
                 </p>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-700 shadow-xl shadow-violet-900/20">
                 <div className="flex items-center gap-3 mb-2">
