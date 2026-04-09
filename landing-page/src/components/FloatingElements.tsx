@@ -44,9 +44,13 @@ export default function FloatingElements() {
               <MessageCircle size={28} />
             </div>
 
-            {/* Tooltip */}
-            <div className="absolute right-full mr-4 px-3 py-1.5 rounded-lg bg-slate-900 border border-white/10 text-white text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 pointer-events-none">
-              Chat with us
+            <div className="absolute right-full mr-4 flex flex-col items-end gap-1 pointer-events-none">
+              <div className="px-3 py-1.5 rounded-lg bg-slate-900 border border-white/10 text-white text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 shadow-2xl">
+                 Need help?
+              </div>
+              <div className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[0.6rem] font-black uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 delay-75">
+                 Online Now
+              </div>
             </div>
           </a>
         </motion.div>

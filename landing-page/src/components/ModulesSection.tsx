@@ -1,227 +1,194 @@
 "use client";
 
-import { CheckCircle2, PlayCircle } from "lucide-react";
+import { Check, ChevronDown, Rocket, Layout, Cpu, Target, Ship, Zap, BookOpen, Sparkles } from "lucide-react";
 import SectionWrapper from "./ui/SectionWrapper";
-import Accordion from "./ui/Accordion";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const MODULES = [
   {
-    id: "mod-1",
-    question: "Module 1: Direction & Opportunity",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Understanding the online earning landscape in 2024.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Why most students stay stuck in theory and never make a Taka.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Shift your mindset towards high-income skills.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>The real-world path from zero to first client.</span>
-        </li>
-      </ul>
-    ),
+    number: "01",
+    title: "Direction & Opportunity",
+    summary: "Understand the high-income potential of landing pages and how to position yourself as a student.",
+    bullets: [
+      "Why Landing Pages are better than full websites",
+      "Finding your 'Niche' (Real Estate, Coaches, SaaS)",
+      "Setting up your mindset for the 30-day sprint",
+      "Goal setting: Your first 10,000 BDT strategy"
+    ],
+    outcome: "You'll have a clear, focused roadmap and the confidence to start.",
+    icon: Rocket
   },
   {
-    id: "mod-2",
-    question: "Module 2: Understanding High-Converting Landing Pages",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Landing Page vs. Website: Why the former is a cash cow.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>The anatomy of a winning page: Hero section to CTA.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Conversion psychology: How to guide a visitor to take action.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Why businesses are desperately looking for this service.</span>
-        </li>
-      </ul>
-    ),
+    number: "02",
+    title: "The Anatomy of a High-Converting Page",
+    summary: "Learn the conversion psychology that makes people click 'Buy'.",
+    bullets: [
+      "The 'Hook-Value-Proof' framework",
+      "Writing headlines that grab attention",
+      "Structure: Header, Hero, Pain, Solution, Social Proof, CTA",
+      "Color theory and typography for SaaS designs"
+    ],
+    outcome: "You'll know exactly what to put on a page to make it sell.",
+    icon: Layout
   },
   {
-    id: "mod-3",
-    question: "Module 3: Generate Landing Pages with AI Using Lovable",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Intro to Lovable: The AI tool that builds code for you.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>The &quot;AI Prompt Framework&quot;: How to tell the AI exactly what you want.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Generating full layouts and initial copy in minutes.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Moving 10x faster than traditional designers.</span>
-        </li>
-      </ul>
-    ),
+    number: "03",
+    title: "Generate Landing Pages with AI",
+    summary: "The core skill: How to tell the AI exactly what you want using Lovable.",
+    bullets: [
+      "Prompt Engineering for landing pages",
+      "Using Lovable to bridge the gap between AI and Code",
+      "Generating modern layouts in minutes",
+      "Iterating with AI to get pixel-perfect results"
+    ],
+    outcome: "You'll be able to build a premium landing page draft in under 1 hour.",
+    icon: Cpu
   },
   {
-    id: "mod-4",
-    question: "Module 4: Optimize AI-Generated Pages",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Refining AI copy to sound human and persuasive.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Cleaning up layouts for a premium, custom feel.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Improving trust with social proof sections.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Final checklist to make the page client-ready.</span>
-        </li>
-      </ul>
-    ),
+    number: "04",
+    title: "The Client-Ready Polish",
+    summary: "Take your AI results and turn them into a professional final product.",
+    bullets: [
+      "Customizing styles and mobile responsiveness",
+      "Adding custom assets and premium icons",
+      "Ensuring fast load times and SEO basics",
+      "Testing conversion elements on 5+ screen sizes"
+    ],
+    outcome: "Your pages will look like they were built by a 5-year expert.",
+    icon: Sparkles
   },
   {
-    id: "mod-5",
-    question: "Module 5: Get Your First Clients",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Who to target: Finding businesses with high lifetime value.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Strategy for Facebook groups and LinkedIn networking.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>The &quot;Student positioning&quot;: How to use your status as an advantage.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Setting up your mini-portfolio that closes deals.</span>
-        </li>
-      </ul>
-    ),
+    number: "05",
+    title: "Finding Your First Clients",
+    summary: "The outreach roadmap: Where to find people who need your help.",
+    bullets: [
+      "The 'Cold Portfolio' strategy for students",
+      "Finding leads on LinkedIn and Facebook",
+      "The Outreach Message framework that gets replies",
+      "Offering value before the 'Ask'"
+    ],
+    outcome: "You'll have a list of potential clients and a way to reach them.",
+    icon: Target
   },
   {
-    id: "mod-6",
-    question: "Module 6: Close the Deal",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>How to talk to leads without sounding like a salesman.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Explaining value: Shift from &quot;I make pages&quot; to &quot;I bring customers&quot;.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Pricing with confidence: 10K to 50K BDT per project.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Handling objections and getting that first payment.</span>
-        </li>
-      </ul>
-    ),
+    number: "06",
+    title: "Closing the Move",
+    summary: "How to talk to clients and convince them to trust you.",
+    bullets: [
+      "Handling price objections ('Too expensive?')",
+      "Explaining value: Shift from 'Pages' to 'Leads'",
+      "Simple contract and agreement templates",
+      "Preparing for the kickoff call"
+    ],
+    outcome: "You'll be able to walk into a client call with zero fear.",
+    icon: Zap
   },
   {
-    id: "mod-7",
-    question: "Module 7: Deliver and Build Momentum",
-    answer: (
-      <ul className="space-y-2">
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Professional delivery workflow.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Handling revisions while maintaining boundaries.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>Strategy for upsells and recurring maintenance.</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <CheckCircle2 size={16} className="text-violet-400 mt-0.5 shrink-0" />
-          <span>The flywheel: Using one client to get the next three.</span>
-        </li>
-      </ul>
-    ),
-  },
+    number: "07",
+    title: "Delivery & Momentum",
+    summary: "Handing over the work and getting your first payment.",
+    bullets: [
+      "Collecting content and assets safely",
+      "The Professional Delivery process",
+      "Getting high-quality testimonials",
+      "Scaling up: Raising your price for the next project"
+    ],
+    outcome: "You'll have your first payment and a system to repeat it.",
+    icon: Ship
+  }
 ];
 
 export default function ModulesSection() {
+  const [activeModule, setActiveModule] = useState<number | null>(0);
+
   return (
     <SectionWrapper
       id="modules"
-      badge="The Curriculum"
-      title="Master the Skill. Build the Income."
-      subtitle="The exact 7-module roadmap designed to take you from a curious beginner to a confident freelance landing page designer."
+      badge="The Roadmap"
+      title="Step-by-Step Skill Mastery"
+      subtitle="7 deep-dive modules designed to take you from a complete beginner to a professional digital creator."
+      className="bg-slate-950/20"
     >
-      <div className="grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8">
-          <Accordion items={MODULES} />
-        </div>
+      <div className="max-w-4xl mx-auto flex flex-col gap-4">
+        {MODULES.map((module, i) => (
+          <div 
+            key={i} 
+            className={`group rounded-[2rem] border transition-all duration-300 overflow-hidden ${
+              activeModule === i 
+                ? "bg-slate-900 border-violet-500/40 shadow-xl shadow-violet-950/20" 
+                : "bg-white/[0.02] border-white/5 hover:border-white/10"
+            }`}
+          >
+            <button
+              onClick={() => setActiveModule(activeModule === i ? null : i)}
+              className="w-full flex items-center justify-between p-6 sm:p-8 text-left"
+              aria-expanded={activeModule === i}
+            >
+              <div className="flex items-center gap-6">
+                <span className={`text-sm font-black tracking-widest ${activeModule === i ? 'text-violet-400' : 'text-slate-600'}`}>
+                  {module.number}
+                </span>
+                <div className="flex items-center gap-4">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
+                    activeModule === i 
+                      ? "bg-violet-500/20 border-violet-500/30 text-violet-400" 
+                      : "bg-white/5 border-white/10 text-slate-400"
+                  }`}>
+                     <module.icon size={20} />
+                  </div>
+                  <h3 className={`font-bold text-lg sm:text-xl tracking-tight transition-colors ${activeModule === i ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>
+                    {module.title}
+                  </h3>
+                </div>
+              </div>
+              <ChevronDown 
+                className={`text-slate-500 transition-transform duration-300 ${activeModule === i ? 'rotate-180' : ''}`} 
+                size={20} 
+              />
+            </button>
 
-        <div className="lg:col-span-4">
-          <div className="sticky top-28 space-y-6">
-            <div className="p-6 rounded-2xl bg-slate-900/50 backdrop-blur-xl border border-violet-500/20 shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <PlayCircle className="text-violet-400" size={24} />
-                <h3 className="text-lg font-bold text-white">Course Overview</h3>
-              </div>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                You get lifetime access to all modules, future updates, and our private student-only community.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between text-sm py-2 border-b border-white/5">
-                  <span className="text-slate-300">Total Lessons</span>
-                  <span className="text-white font-bold">24+</span>
-                </div>
-                <div className="flex items-center justify-between text-sm py-2 border-b border-white/5">
-                  <span className="text-slate-300">Total Duration</span>
-                  <span className="text-white font-bold">8h 45m</span>
-                </div>
-                <div className="flex items-center justify-between text-sm py-2">
-                  <span className="text-slate-300">Skill Level</span>
-                  <span className="text-white font-bold uppercase tracking-wider text-[0.65rem] bg-violet-500/20 px-2 py-0.5 rounded">Beginner</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 border border-violet-500/20">
-               <p className="text-violet-300 text-sm font-medium">
-                 Scroll down to see the <span className="text-white font-bold">FREE Bonuses</span> included with your enrollment.
-               </p>
-            </div>
+            <AnimatePresence>
+               {activeModule === i && (
+                 <motion.div
+                   initial={{ height: 0, opacity: 0 }}
+                   animate={{ height: "auto", opacity: 1 }}
+                   exit={{ height: 0, opacity: 0 }}
+                   transition={{ duration: 0.35, ease: "easeInOut" }}
+                 >
+                    <div className="px-6 sm:px-8 pb-8 pt-2">
+                       <div className="pl-0 sm:pl-16">
+                          <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                             {module.summary}
+                          </p>
+                          
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                             {module.bullets.map((bullet, j) => (
+                               <div key={j} className="flex items-start gap-3">
+                                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                     <Check size={12} className="text-emerald-500" />
+                                  </div>
+                                  <span className="text-slate-300 text-sm leading-snug">{bullet}</span>
+                               </div>
+                             ))}
+                          </div>
+
+                          <div className="p-4 rounded-xl bg-violet-500/5 border border-violet-500/10 flex items-center gap-4">
+                             <div className="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center border border-violet-500/20 shrink-0">
+                                <BookOpen size={14} className="text-violet-400" />
+                             </div>
+                             <p className="text-xs sm:text-sm">
+                                <span className="text-violet-300 font-bold uppercase tracking-wider text-[0.6rem] block mb-0.5">The Result:</span>
+                                <span className="text-slate-300 italic">{module.outcome}</span>
+                             </p>
+                          </div>
+                       </div>
+                    </div>
+                 </motion.div>
+               )}
+            </AnimatePresence>
           </div>
-        </div>
+        ))}
       </div>
     </SectionWrapper>
   );

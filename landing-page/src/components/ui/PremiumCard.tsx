@@ -7,7 +7,7 @@ import { Star } from "lucide-react";
 interface PremiumCardProps {
   icon?: ReactNode;
   badge?: string;
-  title: string;
+  title?: string;
   description?: string;
   children?: ReactNode;
   /** Highlight/featured card style */
